@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../shared/dashboard.service';
 import { DatePipe } from '@angular/common';
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
