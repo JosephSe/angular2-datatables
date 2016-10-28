@@ -1,0 +1,26 @@
+<!--
+<div>
+	<h3>client filter / search</h3>
+</div>
+-->
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Basic Tables <small>basic table subtitle</small></h2>
+				<div class="filter">
+					<div id="reportrange" class="pull-right">
+						<input type='text' placeholder='Type to filter the name column...' [ngModel]='val' (ngModelChange)='updateFilter($event)'
+						/>
+					</div>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+				<datatable class='material' [rows]='rows' [options]='options'></datatable>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,3 +1,102 @@
-<p>
-  dashboard works!
-</p>
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Basic Tables</h2>
+				<div class="filter">
+					<div id="reportrange" class="pull-right">
+						<input [ngModel]="''" (ngModelChange)="updateData($event)" class="form-control"/>
+						<!--<input type='text' placeholder='Type to filter the name column...' [ngModel]='val' (ngModelChange)='updateFilter($event)'/>-->
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+
+				<table class="table table-striped" [mfData]="queueData" #mf="mfDataTable" [mfRowsOnPage]="25">
+					<thead>
+						<tr>
+							<th style="width: 20%">
+								<mfDefaultSorter by="name">Name</mfDefaultSorter>
+							</th>
+							<th style="width: 20%">
+								<mfDefaultSorter by="gender">Gender</mfDefaultSorter>
+							</th>
+							<th style="width: 40%">
+								<mfDefaultSorter by="company">Company</mfDefaultSorter>
+							</th>
+							<th style="width: 20%">
+								<mfDefaultSorter by="company">Company Sub Entity</mfDefaultSorter>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of mf.data">
+							<td>{{item.name}}</td>
+							<td>{{item.gender}}</td>
+							<td class="text-right">{{item.company}}</td>
+							<td>{{item.company | uppercase}}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">
+								<mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+<div class="row">
+	<div class="col-md-6 col-sm-6 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Basic Tables <small>basic table subtitle</small></h2>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+
+				<table class="table table-striped" [mfData]="propertyContractData" #mf="mfDataTable" [mfRowsOnPage]="5">
+					<thead>
+						<tr>
+							<th style="width: 20%">
+								<mfDefaultSorter by="entity">Entity</mfDefaultSorter>
+							</th>
+							<th style="width: 50%">
+								<mfDefaultSorter by="recordType">Record Type</mfDefaultSorter>
+							</th>
+							<th style="width: 10%">
+								<mfDefaultSorter by="failType">Fail Type</mfDefaultSorter>
+							</th>
+							<th style="width: 20%">
+								<mfDefaultSorter by="subEntity">Sub Entity</mfDefaultSorter>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of mf.data">
+							<td>{{item.entity}}</td>
+							<td>{{item.recordType}}</td>
+							<td class="text-right">{{item.failType}}</td>
+							<td>{{item.subEntity | uppercase}}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">
+								<mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+-->

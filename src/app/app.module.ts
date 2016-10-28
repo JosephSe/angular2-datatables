@@ -6,17 +6,23 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopNavComponent } from './shared/top-nav/top-nav.component';
+import {DataTableModule} from "angular2-datatable";
+import { Angular2DataTableModule } from 'angular2-data-table';
+import { TableDataComponent } from './table-data/table-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    TopNavComponent
+    TopNavComponent,
+    TableDataComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Angular2DataTableModule,
+    DataTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
