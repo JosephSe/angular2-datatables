@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.ui-kit-calendar-container .ui-kit-calendar-input span.opened {
+    color: black !important;
+}
+.ui-kit-calendar-cal-container {
+    color: white !important;
+}
+Ï
+.ui-kit-calendar-cal-top {
+    color: white !important;
+}
+.ui-kit-calendar-day-names span {
+    color: white !important;
+}
+.ui-kit-calendar-days span {
+    color: white !important;
+}
