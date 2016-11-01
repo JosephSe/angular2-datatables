@@ -13,6 +13,9 @@ import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
 import { CountSummaryChartComponent } from './count-summary-chart/count-summary-chart.component';
 
 import { GoogleChartDirective } from './shared/google-chart.directive';
+import { SummaryComponent } from './summary/summary.component';
+import { ErrorDetailsComponent } from './error-details/error-details.component';
+import { CountSummaryTableComponent } from './count-summary-table/count-summary-table.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { GoogleChartDirective } from './shared/google-chart.directive';
     TableDataComponent,
     DatePicker,
     CountSummaryChartComponent,
-    GoogleChartDirective
+    GoogleChartDirective,
+    SummaryComponent,
+    ErrorDetailsComponent,
+    CountSummaryTableComponent
   ],
   imports: [
     BrowserModule,

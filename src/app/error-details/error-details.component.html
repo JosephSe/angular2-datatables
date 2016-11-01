@@ -1,0 +1,56 @@
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Error Details : Property Contract</h2>
+				<div class="filter">
+					<div id="reportrange" class="pull-right" class="datepicker">
+						<datepicker [(ngModel)]="date" [expanded]="true" (ngModelChange)='updateDate($event)'></datepicker>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+
+				<table class="table table-striped" [mfData]="queueData" #mf="mfDataTable" [mfRowsOnPage]="5">
+					<thead>
+						<tr>
+							<th style="width: 10%">
+								<mfDefaultSorter by="entity">Entity</mfDefaultSorter>
+							</th>
+							<th style="width: 15%">
+								<mfDefaultSorter by="attributes">Attributes</mfDefaultSorter>
+							</th>
+							<th style="width: 10%">
+								<mfDefaultSorter by="recordType">Record Type</mfDefaultSorter>
+							</th>
+							<th style="width: 10%">
+								<mfDefaultSorter by="subEntity">Sub Entity</mfDefaultSorter>
+							</th>
+							<th style="width: 55%">
+								<mfDefaultSorter by="errorMessage">Error message</mfDefaultSorter>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of mf.data">
+							<td>{{item.entity}}</td>
+							<td>{{item.attributes}}</td>
+							<td>{{item.recordType}}</td>
+							<td>{{item.subEntity}}</td>
+							<td>{{item.errorMessage}}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">
+								<mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

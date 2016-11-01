@@ -16,6 +16,8 @@
       "mobile": false,
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/nprogress/nprogress.css",
         "styles.lib.css",
         "icons.lib.css",
         "../node_modules/angular2-data-table/release/material.css",
@@ -24,7 +26,8 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/nprogress/nprogress.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

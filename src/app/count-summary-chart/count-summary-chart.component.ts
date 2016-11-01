@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../shared/dashboard.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'count-summary-chart',
@@ -9,14 +10,15 @@ import { DashboardService } from '../shared/dashboard.service';
 })
 export class CountSummaryChartComponent implements OnInit {
 
+  countData;
+
   constructor(private _dashboardService: DashboardService) {
 
   }
 
   ngOnInit() {
-    var noOfDays = 15;
-    this._dashboardService.getCountSummary(noOfDays).subscribe(data => this.loadChart(data));
-
+    this._dashboardService.getCountSummary(environment.summaryDaysCount).subscribe(data => this.loadChart(data));
+    // this.loadChart(this.countData);
   }
 
   loadChart(data) {
