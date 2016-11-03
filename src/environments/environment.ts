@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   serverURL : "http://localhost:9000",
-  summaryDaysCount : 10
+  summaryDaysCount : 15
 };

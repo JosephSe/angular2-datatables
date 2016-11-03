@@ -16,6 +16,8 @@ import { GoogleChartDirective } from './shared/google-chart.directive';
 import { SummaryComponent } from './summary/summary.component';
 import { ErrorDetailsComponent } from './error-details/error-details.component';
 import { CountSummaryTableComponent } from './count-summary-table/count-summary-table.component';
+import { EntitySummaryTableComponent } from './entity-summary-table/entity-summary-table.component';
+import { EntityDetailsComponent } from './entity-details/entity-details.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { CountSummaryTableComponent } from './count-summary-table/count-summary-
     GoogleChartDirective,
     SummaryComponent,
     ErrorDetailsComponent,
-    CountSummaryTableComponent
+    CountSummaryTableComponent,
+    EntitySummaryTableComponent,
+    EntityDetailsComponent
   ],
   imports: [
     BrowserModule,

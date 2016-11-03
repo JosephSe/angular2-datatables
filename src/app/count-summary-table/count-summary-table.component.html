@@ -1,62 +1,62 @@
-<div class="x_panel">
-	<div class="x_title">
-		<h2>Error Count</h2>
-		<div class="clearfix"></div>
-	</div>
-	<div class="x_content">
-
-		<table class="table table-striped" [mfData]="tableData" #mf="mfDataTable" [mfRowsOnPage]="15">
-			<thead>
-				<tr>
-					<th style="width: 10%">
-						<mfDefaultSorter by="date">Date</mfDefaultSorter>
-					</th>
-					<th style="width: 7%">
-						<mfDefaultSorter by="cityRecord">CityRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 10%">
-						<mfDefaultSorter by="propertyContractRecord">PropertyContractRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 10%">
-						<mfDefaultSorter by="propertyRatePlanRecord">PropertyRatePlanRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 10%">
-						<mfDefaultSorter by="bookingSummaryRecord">BookingSummaryRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 7%">
-						<mfDefaultSorter by="propertyRecord">PropertyRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 7%">
-						<mfDefaultSorter by="productRecord">ProductRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 10%">
-						<mfDefaultSorter by="landmarkRecord">LandmarkRecord</mfDefaultSorter>
-					</th>
-					<th style="width: 10%">
-						<mfDefaultSorter by="landmarkTextTypeRecord">LandmarkTextTypeRecord</mfDefaultSorter>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let item of mf.data">
-					<td>{{item.date | date:'shortDate' }}</td>
-					<td>{{item.CityRecord}}</td>
-					<td>{{item.PropertyContractRecord}}</td>
-					<td>{{item.PropertyRatePlanRecord}}</td>
-					<td>{{item.BookingSummaryRecord}}</td>
-					<td>{{item.PropertyRecord}}</td>
-					<td>{{item.ProductRecord}}</td>
-					<td>{{item.LandmarkRecord}}</td>
-					<td>{{item.LandmarkTextTypeRecord}}</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="4">
-						<mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
-					</td>
-				</tr>
-			</tfoot>
-		</table>
+<table class="table table-hover" [mfData]="tableData" #mf="mfDataTable" [mfRowsOnPage]="16">
+	<thead>
+		<tr>
+			<th>
+				<mfDefaultSorter by="date">Date</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="CityRecord">CityRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="PropertyContractRecord">PropertyContractRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="PropertyRatePlanRecord">PropertyRatePlanRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="BookingSummaryRecord">BookingSummaryRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="PropertyRecord">PropertyRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="ProductRecord">ProductRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="LandmarkRecord">LandmarkRecord</mfDefaultSorter>
+			</th>
+			<th>
+				<mfDefaultSorter by="LandmarkTextTypeRecord">LandmarkTextTypeRecord</mfDefaultSorter>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let item of mf.data">
+			<td>{{item.date | date:'shortDate' }}</td>
+			<td><span [ngClass]="getCss(item.CityRecord)">{{item.CityRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.PropertyContractRecord)">{{item.PropertyContractRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.PropertyRatePlanRecord)">{{item.PropertyRatePlanRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.BookingSummaryRecord)">{{item.BookingSummaryRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.PropertyRecord)">{{item.PropertyRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.ProductRecord)">{{item.ProductRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.LandmarkRecord)">{{item.LandmarkRecord}}</span></td>
+			<td><span [ngClass]="getCss(item.LandmarkTextTypeRecord)">{{item.LandmarkTextTypeRecord}}</span></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4">
+				<mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+<!--<div class="clearfix"></div>-->
+<div class="tiles">
+	<div class="col-md-12">
+		<h4></h4>
+		<span class="label label-info">Errors > 100</span>
+		<span class="label label-warning">Errors > 500</span>
+		<span class="label label-danger">Errors > 1000</span>
 	</div>
 </div>

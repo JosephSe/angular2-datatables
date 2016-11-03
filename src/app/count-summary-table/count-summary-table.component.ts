@@ -43,4 +43,13 @@ export class CountSummaryTableComponent implements OnInit {
     }
     return row;
   }
+
+  getCss(value)  {
+    var cls = "";
+    var valInt = parseInt(value);
+    if(valInt > 100 && valInt < 500) cls = "label label-info"
+    else if(valInt > 500 && valInt < 1000) cls = "label label-warning"
+    else if(valInt > 1000) cls = "label label-danger";
+    return cls;  
+  }
 }

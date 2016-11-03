@@ -30,7 +30,6 @@ export class CountSummaryChartComponent implements OnInit {
     for(var dat in data.data){
       rows.push(this.getRow(entities, dat, data.data[dat]));
     }
-    console.log(JSON.stringify(rows));
     this.line_ChartData = rows;
   }
 

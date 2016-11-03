@@ -10,7 +10,6 @@ import { DashboardService } from '../shared/dashboard.service';
 export class SummaryComponent {
 
   countData;
-  noOfDays = 15;
 
   constructor(private _dashboardService: DashboardService) {
     var test = "";
