@@ -104,7 +104,7 @@ export class EntitySummaryTableComponent implements OnInit {
 
   ngOnInit() {
     var dayStr = this._datePipe.transform(new Date(), 'yyyy-MM-dd');
-    // dayStr = '2016-10-27';
+    // dayStr = '2016-11-02';
     this._dashboardService.getEntitySummaryData(this.selectedEntity, dayStr).subscribe(data => this.loadTables(data));
   }
 
