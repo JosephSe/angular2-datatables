@@ -1,0 +1,8 @@
+<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+  <span class="count_top"><i class="fa fa-exclamation-triangle yellow"></i>{{title}}</span>
+  <div class="count">{{value}}</div>
+  <span class="count_bottom">
+    <i class="green" [ngClass]="{'green' : !isUp, 'red': isUp}" *ngIf="hasDiff">
+      <i class="fa" [ngClass]="{'fa-sort-asc' : isUp, 'fa-sort-desc' : !isUp}"></i>{{diff | number : '1.1-1'}}{{diffSubText}}</i> {{subContent}}
+  </span>
+</div>

@@ -17,7 +17,7 @@ export class CountSummaryChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._dashboardService.getCountSummary(environment.summaryDaysCount).subscribe(data => this.loadChart(data));
+    this._dashboardService.getCountSummary().subscribe(data => this.loadChart(data));
     // this.loadChart(this.countData);
   }
 

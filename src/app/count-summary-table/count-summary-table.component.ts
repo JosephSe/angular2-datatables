@@ -16,7 +16,7 @@ export class CountSummaryTableComponent implements OnInit {
   constructor(private _dashboardService:DashboardService) { }
 
   ngOnInit() {
-    this._dashboardService.getCountSummary(environment.summaryDaysCount).subscribe(data => this.loadTable(data));
+    this._dashboardService.getCountSummary().subscribe(data => this.loadTable(data));
   }
 
   loadTable(data) {

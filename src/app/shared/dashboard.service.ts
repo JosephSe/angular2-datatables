@@ -22,7 +22,8 @@ export class DashboardService {
     return this.call(url);
   }
 
-  getCountSummary(days) {
+  getCountSummary() {
+    var days = environment.summaryDaysCount;
     // "http://localhost:9000/atg/queueData/count/6?group=true"
     var url = environment.serverURL + this.queueSubPath + days + '?group=true';
     return this.call(url);

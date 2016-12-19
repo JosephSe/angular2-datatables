@@ -13,11 +13,14 @@ import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
 import { CountSummaryChartComponent } from './count-summary-chart/count-summary-chart.component';
 
 import { GoogleChartDirective } from './shared/google-chart.directive';
+import { DashboardService } from './shared/dashboard.service';
 import { SummaryComponent } from './summary/summary.component';
 import { ErrorDetailsComponent } from './error-details/error-details.component';
 import { CountSummaryTableComponent } from './count-summary-table/count-summary-table.component';
 import { EntitySummaryTableComponent } from './entity-summary-table/entity-summary-table.component';
 import { EntityDetailsComponent } from './entity-details/entity-details.component';
+import { TopTileComponent } from './top-tile/top-tile.component';
+import { TopTilesComponent } from './top-tiles/top-tiles.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { EntityDetailsComponent } from './entity-details/entity-details.componen
     ErrorDetailsComponent,
     CountSummaryTableComponent,
     EntitySummaryTableComponent,
-    EntityDetailsComponent
+    EntityDetailsComponent,
+    TopTileComponent,
+    TopTilesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,7 @@ import { EntityDetailsComponent } from './entity-details/entity-details.componen
     Angular2DataTableModule,
     DataTableModule
   ],
-  providers: [],
+  providers: [DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
