@@ -18,6 +18,7 @@ export class TopTilesComponent implements OnInit {
 
   public total: any = {};
   public worstEntity: any = {};
+  public todaysEntities: any = {};
 
   constructor(private _dashboardService: DashboardService, private _datePipe: DatePipe) {
   }
@@ -29,6 +30,7 @@ export class TopTilesComponent implements OnInit {
   loadTileInfo(response) {
     this.updateTotal(response);
     this.getWorstEntity(response);
+    this.getTotalEntitiesToday(response);
   }
 
   updateTotal(response) {
@@ -51,7 +53,13 @@ export class TopTilesComponent implements OnInit {
     this.total.isUp = diff > 0;
     diff = (diff / ydaysTotal) * 100;
 
-    this.total.title = "Total errors today";
+    var icon = "";
+    if (this.total.isUp) icon = 'fa-thumbs-o-down red';
+    else icon = 'fa-thumbs-o-up green';
+
+    this.total.title = "Errors today";
+    this.total.icon = icon;
+    this.total.iconColor = "";
     this.total.subContent = "since yday";
     this.total.today = todaysTotal;
     this.total.hasDiff = true;
@@ -61,6 +69,7 @@ export class TopTilesComponent implements OnInit {
   }
 
   getWorstEntity(response) {
+    var daysCount = 7;
     var today = new Date();
     var entities = {};
     var i;
@@ -68,32 +77,74 @@ export class TopTilesComponent implements OnInit {
       entities[response.entities[entity]] = 0;
     }
 
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < daysCount - 1; i++) {
       var date = new Date();
       date.setDate(date.getDate() - i);
       var dayStr = this._datePipe.transform(date, 'dd/MM/yyyy');
       var daysData = response.data[dayStr];
-      for(let ent of daysData) {
-        var sum = entities[ent.entity];
-        sum += ent.count;
-        entities[ent.entity] = sum;
+      if (daysData) {
+        for (let ent of daysData) {
+          var sum = entities[ent.entity];
+          sum += ent.count;
+          entities[ent.entity] = sum;
+        }
       }
     }
 
     var maxEntity = "";
     var maxSum = 0;
-    for(var entity in entities) {
+    for (var entity in entities) {
       var sum = entities[entity];
-      if(sum > maxSum) {
+      if (sum > maxSum) {
         maxSum = sum;
         maxEntity = entity;
       }
     }
+
+    var days = daysCount;
+    this.worstEntity.isUp = true;
+    this.worstEntity.icon = "fa-exclamation-triangle yellow";
     this.worstEntity.title = "Worst entity";
-    this.worstEntity.subContent = maxEntity;
+    this.worstEntity.subContent = maxEntity + " failures past " + days + " days";
     this.worstEntity.sum = maxSum;
+    // this.worstEntity.title = maxEntity;
+    // this.worstEntity.subContent = maxSum + " failures past 7 days";
+    // this.worstEntity.sum = "Worst entity";
     this.worstEntity.hasDiff = false;
     this.worstEntity.diff = "";
     this.worstEntity.diffSubText = "";
+  }
+
+  getTotalEntitiesToday(response) {
+    var date = new Date();
+    var dayStr = this._datePipe.transform(date, 'dd/MM/yyyy');
+    var todaysData = response.data[dayStr];
+    var tCount = getCount(todaysData)
+
+    date.setDate(date.getDate() - 1);
+    dayStr = this._datePipe.transform(date, 'dd/MM/yyyy');
+    var ydayData = response.data[dayStr];
+    var yCount = getCount(ydayData);
+
+    function getCount(entity) {
+      if(entity) return entity.length;
+      else 0;
+    }
+
+    var diff = tCount - yCount;
+    var isUp = diff > 0;
+    var icon = "";
+    if (isUp) icon = 'fa-thumbs-o-down red';
+    else icon = 'fa-thumbs-o-up green';
+
+    this.todaysEntities.isUp = isUp;
+    this.todaysEntities.icon = icon;
+    this.todaysEntities.title = "Entities Today";
+    this.todaysEntities.subContent = "since yday";
+    this.todaysEntities.sum = tCount;
+    this.todaysEntities.hasDiff = true;
+    this.todaysEntities.diff = tCount - yCount;
+    this.todaysEntities.diffSubText = "";
+
   }
 }

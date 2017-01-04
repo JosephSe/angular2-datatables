@@ -23,7 +23,7 @@ export class GoogleChartDirective implements OnInit, OnChanges {
         if (!this.globalVar.googleLoaded) {
             console.log("google load check")
             this.globalVar.googleLoaded = true;
-            google.charts.load('current', { 'packages': ['corechart', 'gauge'] });
+            google.charts.load('current', { 'packages': ['corechart', 'bar'] });
         } else {
             console.log("google load check")
 

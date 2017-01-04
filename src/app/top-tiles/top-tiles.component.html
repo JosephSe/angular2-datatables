@@ -1,7 +1,11 @@
 <div class="row tile_count">
-  <top-tile [title]="total.title" [value]="total.today" [diff]="total.diff" [hasDiff]="total.hasDiff" [diffSubText]="total.diffSubText" [subContent]="total.subContent"
-    [isUp]="total.isUp"></top-tile>
+  <top-tile [title]="total.title" [icon]="total.icon" [value]="total.today" [diff]="total.diff" [hasDiff]="total.hasDiff" [diffSubText]="total.diffSubText"
+    [subContent]="total.subContent" [isUp]="total.isUp"></top-tile>
 
-  <top-tile [title]="worstEntity.title" [value]="worstEntity.sum" [diff]="worstEntity.diff" [hasDiff]="worstEntity.hasDiff"  [diffSubText]="worstEntity.diffSubText" [subContent]="worstEntity.subContent"
-    [isUp]="total.isUp"></top-tile>
+  <top-tile [title]="worstEntity.title" [icon]="worstEntity.icon" [value]="worstEntity.sum" [diff]="worstEntity.diff" [hasDiff]="worstEntity.hasDiff"
+    [diffSubText]="worstEntity.diffSubText" [subContent]="worstEntity.subContent" [isUp]="worstEntity.isUp"></top-tile>
+
+  <top-tile [title]="todaysEntities.title" [icon]="todaysEntities.icon" [value]="todaysEntities.sum" [diff]="todaysEntities.diff" [hasDiff]="todaysEntities.hasDiff" [diffSubText]="todaysEntities.diffSubText"
+    [subContent]="todaysEntities.subContent" [isUp]="todaysEntities.isUp"></top-tile>
+
 </div>

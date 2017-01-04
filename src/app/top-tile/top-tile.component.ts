@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TopTileComponent implements OnInit {
 
   @Input() title;
+  @Input() icon;
   @Input() value;
   @Input() subContent;
   @Input() isUp;
