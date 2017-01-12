@@ -13,6 +13,8 @@ export class TopTilesComponent implements OnInit {
 
   public totalToday = 0;
   public totalYday = 0;
+  private daysCount = 7;
+
   // public totalTitle = "Total errors today";
   // public totalSubContent = "since yesterday";
 
@@ -29,8 +31,9 @@ export class TopTilesComponent implements OnInit {
 
   loadTileInfo(response) {
     this.updateTotal(response);
-    this.getWorstEntity(response);
+    this.getWorstEntites(response);
     this.getTotalEntitiesToday(response);
+    this.getTotalErrors(response);
   }
 
   updateTotal(response) {
@@ -68,8 +71,7 @@ export class TopTilesComponent implements OnInit {
     this.total.diffSubText = "%";
   }
 
-  getWorstEntity(response) {
-    var daysCount = 7;
+  getWorstEntites(response) {
     var today = new Date();
     var entities = {};
     var i;
@@ -77,7 +79,7 @@ export class TopTilesComponent implements OnInit {
       entities[response.entities[entity]] = 0;
     }
 
-    for (i = 0; i < daysCount - 1; i++) {
+    for (i = 0; i < this.daysCount - 1; i++) {
       var date = new Date();
       date.setDate(date.getDate() - i);
       var dayStr = this._datePipe.transform(date, 'dd/MM/yyyy');
@@ -101,7 +103,7 @@ export class TopTilesComponent implements OnInit {
       }
     }
 
-    var days = daysCount;
+    var days = this.daysCount;
     this.worstEntity.isUp = true;
     this.worstEntity.icon = "fa-exclamation-triangle yellow";
     this.worstEntity.title = "Worst entity";
@@ -127,7 +129,7 @@ export class TopTilesComponent implements OnInit {
     var yCount = getCount(ydayData);
 
     function getCount(entity) {
-      if(entity) return entity.length;
+      if (entity) return entity.length;
       else 0;
     }
 
@@ -145,6 +147,19 @@ export class TopTilesComponent implements OnInit {
     this.todaysEntities.hasDiff = true;
     this.todaysEntities.diff = tCount - yCount;
     this.todaysEntities.diffSubText = "";
+
+  }
+
+  getTotalErrors(response) {
+    var today = new Date();
+    var total = 0;
+
+    for(var day in response.data) {
+      total = 0;
+        // for(var ent in day) {
+        // total = total + ent.count;
+      // }
+    }
 
   }
 }

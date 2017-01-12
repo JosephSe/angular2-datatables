@@ -4,52 +4,24 @@
 			<th>
 				<mfDefaultSorter by="date">Date</mfDefaultSorter>
 			</th>
-			<th>
-				<mfDefaultSorter by="CityRecord">CityRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="PropertyContractRecord">PropertyContractRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="PropertyRatePlanRecord">PropertyRatePlanRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="BookingSummaryRecord">BookingSummaryRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="PropertyRecord">PropertyRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="ProductRecord">ProductRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="LandmarkRecord">LandmarkRecord</mfDefaultSorter>
-			</th>
-			<th>
-				<mfDefaultSorter by="LandmarkTextTypeRecord">LandmarkTextTypeRecord</mfDefaultSorter>
+			<th *ngFor="let entity of tableData.entities">
+				<mfDefaultSorter by="{{entity}}">{{entity}}</mfDefaultSorter>
 			</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let item of mf.data">
+		<tr *ngFor="let item of tableData.data">
 			<td>{{item.date | date:'shortDate' }}</td>
-			<td><span [ngClass]="getCss(item.CityRecord)">{{item.CityRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.PropertyContractRecord)">{{item.PropertyContractRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.PropertyRatePlanRecord)">{{item.PropertyRatePlanRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.BookingSummaryRecord)">{{item.BookingSummaryRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.PropertyRecord)">{{item.PropertyRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.ProductRecord)">{{item.ProductRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.LandmarkRecord)">{{item.LandmarkRecord}}</span></td>
-			<td><span [ngClass]="getCss(item.LandmarkTextTypeRecord)">{{item.LandmarkTextTypeRecord}}</span></td>
-		</tr>
-	</tbody>
-	<tfoot>
-		<tr>
-			<td colspan="4">
-				<mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
+			<td *ngFor="let entity of tableData.entities">
+				<span [ngClass]="getCss(item[entity])">{{item[entity]}}</span>
 			</td>
-		</tr>
-	</tfoot>
+			<tfoot>
+				<tr>
+					<td colspan="4">
+						<mfBootstrapPaginator [rowsOnPageSet]="[25,50,100]"></mfBootstrapPaginator>
+					</td>
+				</tr>
+			</tfoot>
 </table>
 <!--<div class="clearfix"></div>-->
 <div class="tiles">

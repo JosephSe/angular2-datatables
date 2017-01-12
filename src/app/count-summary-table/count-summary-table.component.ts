@@ -11,7 +11,7 @@ import { DashboardService } from '../shared/dashboard.service';
 export class CountSummaryTableComponent implements OnInit {
 
   @Input() countData;
-  tableData;
+  @Input() tableData= {};
 
   constructor(private _dashboardService:DashboardService) { }
 
@@ -25,7 +25,8 @@ export class CountSummaryTableComponent implements OnInit {
     for (var dat in data.data) {
       rows.push(this.getRow(entities, dat, data.data[dat]));
     }
-    this.tableData = rows;
+    this.tableData["data"] = rows;
+    this.tableData["entities"] = entities
   }
 
   private getRow(entities, date, data) {
@@ -46,7 +47,7 @@ export class CountSummaryTableComponent implements OnInit {
 
   getCss(value)  {
     var cls = "";
-    var valInt = parseInt(value);
+    var valInt = parseInt(value); 
     if(valInt > 100 && valInt < 500) cls = "label label-info"
     else if(valInt > 500 && valInt < 1000) cls = "label label-warning"
     else if(valInt > 1000) cls = "label label-danger";
