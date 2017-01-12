@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,6 +13,7 @@ import { TableDataComponent } from './table-data/table-data.component';
 import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
 import { CountSummaryChartComponent } from './count-summary-chart/count-summary-chart.component';
 
+import { Angular2DatatablesRoutingModule } from './app-routing.module';
 import { GoogleChartDirective } from './shared/google-chart.directive';
 import { DashboardService } from './shared/dashboard.service';
 import { SummaryComponent } from './summary/summary.component';
@@ -21,10 +23,12 @@ import { EntitySummaryTableComponent } from './entity-summary-table/entity-summa
 import { EntityDetailsComponent } from './entity-details/entity-details.component';
 import { TopTileComponent } from './top-tile/top-tile.component';
 import { TopTilesComponent } from './top-tiles/top-tiles.component';
+import { JenkinsComponent } from './jenkins/jenkins.component';
+import { AgtComponent } from './agt/agt.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     DashboardComponent,
     TopNavComponent,
@@ -38,16 +42,20 @@ import { TopTilesComponent } from './top-tiles/top-tiles.component';
     EntitySummaryTableComponent,
     EntityDetailsComponent,
     TopTileComponent,
-    TopTilesComponent
+    TopTilesComponent,
+    JenkinsComponent,
+    AgtComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     Angular2DataTableModule,
-    DataTableModule
+    DataTableModule,
+    Angular2DatatablesRoutingModule
   ],
   providers: [DashboardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+// import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { DashboardService } from '../shared/dashboard.service';
 @Component({
   selector: 'summary',
