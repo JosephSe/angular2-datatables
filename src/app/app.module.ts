@@ -11,20 +11,21 @@ import { DataTableModule } from "angular2-datatable";
 import { Angular2DataTableModule } from 'angular2-data-table';
 import { TableDataComponent } from './table-data/table-data.component';
 import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
-import { CountSummaryChartComponent } from './count-summary-chart/count-summary-chart.component';
+import { CountSummaryChartComponent } from './atgCommon/summary/count-summary-chart/count-summary-chart.component';
 
 import { Angular2DatatablesRoutingModule } from './app-routing.module';
 import { GoogleChartDirective } from './shared/google-chart.directive';
 import { DashboardService } from './shared/dashboard.service';
-import { SummaryComponent } from './summary/summary.component';
-import { ErrorDetailsComponent } from './error-details/error-details.component';
-import { CountSummaryTableComponent } from './count-summary-table/count-summary-table.component';
-import { EntitySummaryTableComponent } from './entity-summary-table/entity-summary-table.component';
-import { EntityDetailsComponent } from './entity-details/entity-details.component';
+import { SummaryComponent } from './atgCommon/summary/summary.component';
+import { ErrorDetailsComponent } from './atgCommon/entity-details/error-details/error-details.component';
+import { CountSummaryTableComponent } from './atgCommon/summary/count-summary-table/count-summary-table.component';
+import { EntitySummaryTableComponent } from './atgCommon/entity-details/entity-summary-table/entity-summary-table.component';
+import { EntityDetailsComponent } from './atgCommon/entity-details/entity-details.component';
 import { TopTileComponent } from './top-tile/top-tile.component';
 import { TopTilesComponent } from './top-tiles/top-tiles.component';
 import { JenkinsComponent } from './jenkins/jenkins.component';
 import { AgtComponent } from './agt/agt.component';
+import { TotalCountChartComponent } from './atgCommon/total-count-chart/total-count-chart.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AgtComponent } from './agt/agt.component';
     TopTileComponent,
     TopTilesComponent,
     JenkinsComponent,
-    AgtComponent
+    AgtComponent,
+    TotalCountChartComponent
   ],
   imports: [
     BrowserModule,

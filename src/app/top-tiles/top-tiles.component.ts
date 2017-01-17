@@ -44,8 +44,10 @@ export class TopTilesComponent implements OnInit {
     var ydayStr = this._datePipe.transform(yday, 'dd/MM/yyyy');
     var todaysData = response.data[todayStr];
     var todaysTotal = 0;
-    for (let entity of todaysData) {
-      todaysTotal += entity.count;
+    if (todaysData) {
+      for (let entity of todaysData) {
+        todaysTotal += entity.count;
+      }
     }
     var ydaysData = response.data[ydayStr];
     var ydaysTotal = 0;
@@ -54,7 +56,7 @@ export class TopTilesComponent implements OnInit {
     }
     var diff = todaysTotal - ydaysTotal;
     this.total.isUp = diff > 0;
-    diff = (diff / ydaysTotal) * 100;
+    // diff = (diff / ydaysTotal) * 100;
 
     var icon = "";
     if (this.total.isUp) icon = 'fa-thumbs-o-down red';
@@ -68,7 +70,7 @@ export class TopTilesComponent implements OnInit {
     this.total.hasDiff = true;
     this.total.yday = ydaysTotal;
     this.total.diff = diff;
-    this.total.diffSubText = "%";
+    this.total.diffSubText = "";
   }
 
   getWorstEntites(response) {
@@ -79,7 +81,7 @@ export class TopTilesComponent implements OnInit {
       entities[response.entities[entity]] = 0;
     }
 
-    for (i = 0; i < this.daysCount - 1; i++) {
+    for (i = 0; i < this.daysCount; i++) {
       var date = new Date();
       date.setDate(date.getDate() - i);
       var dayStr = this._datePipe.transform(date, 'dd/MM/yyyy');
@@ -129,8 +131,8 @@ export class TopTilesComponent implements OnInit {
     var yCount = getCount(ydayData);
 
     function getCount(entity) {
-      if (entity) return entity.length;
-      else 0;
+      if (entity === undefined) return 0
+      else return entity.length;
     }
 
     var diff = tCount - yCount;
@@ -154,10 +156,10 @@ export class TopTilesComponent implements OnInit {
     var today = new Date();
     var total = 0;
 
-    for(var day in response.data) {
+    for (var day in response.data) {
       total = 0;
-        // for(var ent in day) {
-        // total = total + ent.count;
+      // for(var ent in day) {
+      // total = total + ent.count;
       // }
     }
 

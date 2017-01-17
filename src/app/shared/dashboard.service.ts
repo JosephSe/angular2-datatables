@@ -9,6 +9,7 @@ export class DashboardService {
   atgSubPath = "/atg/queueData/"
   queueSubPath = this.atgSubPath + "count/"
   entitySummaryPath = this.atgSubPath + "2016-11-01/PropertyContractRecord/summary"
+  jenkinsHistoryPath = "/jenkins/job/history/all"
 
   getData(dayStr) {
     // var url = environment.serverURL + this.atgSubPath + dayStr + '/PropertyContractRecord';
@@ -26,6 +27,11 @@ export class DashboardService {
     var days = environment.summaryDaysCount;
     // "http://localhost:9000/atg/queueData/count/6?group=true"
     var url = environment.serverURL + this.queueSubPath + days + '?group=true';
+    return this.call(url);
+  }
+
+  getJenkinsHistory() {
+    var url = environment.serverURL + this.jenkinsHistoryPath;
     return this.call(url);
   }
 

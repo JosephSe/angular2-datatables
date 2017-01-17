@@ -6,12 +6,11 @@ import { AgtComponent } from './agt/agt.component';
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/atg',
+  redirectTo: '/',
   pathMatch:'full'
 }, {
-  path:'atg',
+  path:'',
   component: AgtComponent
-
 }, {
   path:'jenkins',
   component: JenkinsComponent

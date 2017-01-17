@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { DashboardService } from '../shared/dashboard.service';
+import { DashboardService } from '../../shared/dashboard.service';
 @Component({
   selector: 'summary',
   templateUrl: './summary.component.html',

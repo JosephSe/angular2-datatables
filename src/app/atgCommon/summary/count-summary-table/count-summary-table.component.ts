@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { DashboardService } from '../shared/dashboard.service';
+import { environment } from '../../../../environments/environment';
+import { DashboardService } from '../../../shared/dashboard.service';
 
 @Component({
   selector: 'count-summary-table',

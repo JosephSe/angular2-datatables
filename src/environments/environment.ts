@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  serverURL : "http://localhost:9000",
-  // serverURL : "http://10.241.102.113:9000",
-  summaryDaysCount : 5
+  // serverURL : "http://localhost:9000",
+  serverURL : "http://10.241.102.113:9000",
+  summaryDaysCount : 14
 };
