@@ -10,7 +10,7 @@ import { TopNavComponent } from './shared/top-nav/top-nav.component';
 import { DataTableModule } from "angular2-datatable";
 import { Angular2DataTableModule } from 'angular2-data-table';
 import { TableDataComponent } from './table-data/table-data.component';
-import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+// import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
 import { CountSummaryChartComponent } from './atgCommon/summary/count-summary-chart/count-summary-chart.component';
 
 import { Angular2DatatablesRoutingModule } from './app-routing.module';
@@ -34,7 +34,7 @@ import { TotalCountChartComponent } from './atgCommon/total-count-chart/total-co
     DashboardComponent,
     TopNavComponent,
     TableDataComponent,
-    DatePicker,
+    // DatePicker,
     CountSummaryChartComponent,
     GoogleChartDirective,
     SummaryComponent,
