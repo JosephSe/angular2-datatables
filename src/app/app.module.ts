@@ -14,6 +14,7 @@ import { TableDataComponent } from './table-data/table-data.component';
 import { CountSummaryChartComponent } from './atgCommon/summary/count-summary-chart/count-summary-chart.component';
 
 import { Angular2DatatablesRoutingModule } from './app-routing.module';
+
 import { GoogleChartDirective } from './shared/google-chart.directive';
 import { DashboardService } from './shared/dashboard.service';
 import { SummaryComponent } from './atgCommon/summary/summary.component';
